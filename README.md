@@ -2,23 +2,11 @@
 
 This is a simple script to automate the process of generating a reverse-shell command like those described in [pentestmonkey](http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet) blog:
 
-```
-$ ./shellback.py -h
-usage: shellback.py [-h] [-l] [-p] [-v] [-f] [-c]
-
-shellback.py: generates a reverse shell
-
-arguments:
-  -h, --help       show this help message and exit
-  -l , --lhost     Specify local host ip
-  -p , --lport     Specify a local port [default 8080]
-  -v , --version   Specify the language to generate the reverse shell [default bash]
-  -f, --tofile     reverse-shell command to be written in a file
-  -c, --copy       Copy reverse-shell command to clipboard
-```
-Example:
-
 <img src="images/shellback.png" width="80%">
+
+__Example:__
+
+<img src="images/example.png" width="80%">
 
 >This script was originally part of the scripts in my [pypentesting-repository](https://github.com/chrispetrou/pypentesting#revshell), but since I tend to use a lot on CTF-like challenges and pentesting labs I decided to create a separate repository for it.
 
