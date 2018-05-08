@@ -18,7 +18,7 @@ arguments:
 ```
 Example:
 
-<img src="images/revshell.png" width="80%">
+<img src="images/shellback.png" width="80%">
 
 >This script was originally part of the script in my [pypentesting-repository](https://github.com/chrispetrou/pypentesting), but since I tend to use a lot on CTF-like challenges and pentesting labs I decided to create a separate repository for it.
 
