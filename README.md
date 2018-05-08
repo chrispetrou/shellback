@@ -20,7 +20,7 @@ Example:
 
 <img src="images/shellback.png" width="80%">
 
->This script was originally part of the script in my [pypentesting-repository](https://github.com/chrispetrou/pypentesting), but since I tend to use a lot on CTF-like challenges and pentesting labs I decided to create a separate repository for it.
+>This script was originally part of the scripts in my [pypentesting-repository](https://github.com/chrispetrou/pypentesting#revshell), but since I tend to use a lot on CTF-like challenges and pentesting labs I decided to create a separate repository for it.
 
 **Requirements:**
 
