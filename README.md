@@ -10,6 +10,7 @@ This is a standalone python script to automate the process of generating a rever
 <img src="images/example2.png" width="80%">
 
 ### Supported reverse shells (-v option)
+__default__: bash
 
 Reverse shells |
 |-|
@@ -21,6 +22,20 @@ Reverse shells |
 | nc1 (nc version 1)|
 | nc2 (nc version 2)|
 | java |
+
+### Supported shell types (-s option) 
+__default__: /bin/sh
+
+In some cases it is possible to specify the shell type. The supported shell-types are the following:
+
+Shell types |
+|-|
+| sh |
+| zsh |
+| ksh |
+| tcsh |
+| bash |
+| dash |
 
 > This script was originally part of the scripts in my [pypentesting-repository](https://github.com/chrispetrou/pypentesting#revshell), but since I tend to use a lot on CTF-like challenges and pentesting labs I decided to create a separate repository for it.
 
