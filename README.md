@@ -4,6 +4,8 @@ This is a standalone python script to automate the process of generating a rever
 
 <img src="images/shellback.png" width="80%">
 
+__Compatibility:__ The `shellback.py` script is compatible with **python 2.7** and the `/py3_version/shellback.py` is compatible with **python3.5**.
+
 > __Examples:__
 
 <img src="images/example1.png" width="80%">
@@ -44,9 +46,11 @@ Shell types |
 *   [pyperclip](https://pypi.python.org/pypi/pyperclip)
 *   [colorama](https://pypi.python.org/pypi/colorama)
 
-**Note:** To install the requirements:
+#### **Note:** To install the requirements:
+---
+>__python2.7:__ `pip install -r requirements.txt --upgrade --user`
 
-`pip install -r requirements.txt --upgrade --user`
+>__python3.5:__ `pip3 install -r requirements.txt --upgrade --user`
 
 ### Disclaimer
 > This tool is only for testing and academic purposes and can only be used where strict consent has been given. Do not use it for illegal purposes! It is the end user’s responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this tool and software.
