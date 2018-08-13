@@ -1,4 +1,4 @@
-# shellback [![GPLv3 license](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://github.com/chrispetrou/shellback/blob/master/LICENSE) [![](https://img.shields.io/badge/Made%20with-python-yellow.svg)](https://www.python.org/)
+# shellback [![GPLv3 license](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://github.com/chrispetrou/shellback/blob/master/LICENSE) [![](https://img.shields.io/badge/python-2.7%20%7C%203.5-orange.svg)](https://www.python.org/)
 
 This is a standalone python script to automate the process of generating a reverse-shell command like those described in [pentestmonkey](http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet) blog:
 
