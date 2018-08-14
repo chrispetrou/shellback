@@ -48,9 +48,8 @@ Shell types |
 
 #### **Note:** To install the requirements:
 ---
->__python2.7:__ `pip install -r requirements.txt --upgrade --user`
-
->__python3.5:__ `pip3 install -r requirements.txt --upgrade --user`
+*   __python 2.7:__ `pip install -r requirements.txt --upgrade --user`
+*   __python 3.5:__ `pip3 install -r requirements.txt --upgrade --user`
 
 ### Disclaimer
 > This tool is only for testing and academic purposes and can only be used where strict consent has been given. Do not use it for illegal purposes! It is the end user’s responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this tool and software.
